@@ -1,0 +1,1 @@
+export type { RegisterInterface } from './register.interface';
