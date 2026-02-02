@@ -65,6 +65,8 @@ export type ConfigSchema = {
   REGISTER_TOKEN_EXPIRATION_MINUTES: number;
   REDIS_HOST: string;
   REDIS_PORT: number;
+  REDIS_PASSWORD?: string;
+  REDIS_DATABASE?: number;
 };
 
 export type ConfigEnvironment = {
@@ -80,5 +82,7 @@ export type ConfigEnvironment = {
   redis: {
     host: string;
     port: number;
+    password?: string;
+    db?: number;
   };
 };

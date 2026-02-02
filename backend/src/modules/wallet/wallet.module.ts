@@ -26,10 +26,10 @@ import { RedisModule } from '@shared/infrastructure/redis';
         RedisModule.forRootAsync({
             inject: [ConfigService],
             useFactory: (config: ConfigService) => ({
-                host: config.get<string>('REDIS_HOST') || 'localhost',
-                port: config.get<number>('REDIS_PORT') || 6379,
-                password: config.get<string>('REDIS_PASSWORD'),
-                db: config.get<number>('REDIS_DB') || 0,
+                host: config.get<string>('redis.host')!,
+                port: config.get<number>('redis.port')!,
+                password: config.get<string>('redis.password')!,
+                db: config.get<number>('redis.db')!,
             }),
         }),
     ],

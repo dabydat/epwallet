@@ -14,4 +14,6 @@ export const configValidation = Joi.object<ConfigSchema>({
   REGISTER_TOKEN_EXPIRATION_MINUTES: Joi.number().required(),
   REDIS_HOST: Joi.string().required(),
   REDIS_PORT: Joi.number().required(),
+  REDIS_PASSWORD: Joi.string().allow('').optional(),
+  REDIS_DATABASE: Joi.number().optional(),
 });
