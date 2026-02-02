@@ -39,6 +39,12 @@ La arquitectura completa se puede desplegar fácilmente utilizando **Docker Comp
 
 ### 1. Configuración del Entorno (`.env`)
 
+Está creado un archivo llamado "init.sh" en la raiz del repositorio, que una vez ejecutado creará el archivo .env necesario con los datos correspondientes, se encargará de coinstruir y levantar los contenedores. Esta opción fue creada para hacer sencillo el proceso de levantamiento y configuración del proyecto. 
+
+Para los equipos con OS Windows, es importante tener WSL o alguna distribución de linux instalada para su ejecución en la terminal dedicada a la distribución de Linux y el Docker Desktop activo.
+
+Si no se quiere ejecutar el archivo "init.sh" se puede hacer de forma manual explicado en las lineas siguientes.
+
 Asegúrate de configurar los archivos de entorno necesarios:
 
 - **Backend:** Copia `backend/.env.example` a `backend/.env`.
