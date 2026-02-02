@@ -1,0 +1,67 @@
+version: '3.8'
+
+services:
+  # Backend API
+  backend:
+    build: 
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: ewallet_backend
+    restart: always
+    ports:
+      - "3000:3000"
+    env_file:
+      - ./backend/.env
+    depends_on:
+      - db
+      - redis
+    networks:
+      - ewallet_network
+
+  # Frontend
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: ewallet_frontend
+    restart: always
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+    networks:
+      - ewallet_network
+
+  # Base de datos MySQL
+  db:
+    image: mysql:8.0
+    container_name: ewallet_db
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: ewallet_wallet
+      MYSQL_USER: ewallet_user
+      MYSQL_PASSWORD: ewallet_password
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - ewallet_network
+
+  # Redis para Caching y Colas (BullMQ)
+  redis:
+    image: redis:alpine
+    container_name: ewallet_redis
+    restart: always
+    ports:
+      - "6379:6379"
+    networks:
+      - ewallet_network
+
+networks:
+  ewallet_network:
+    driver: bridge
+
+volumes:
+  mysql_data:
