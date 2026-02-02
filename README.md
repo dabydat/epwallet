@@ -42,7 +42,6 @@ La arquitectura completa se puede desplegar fácilmente utilizando **Docker Comp
 Asegúrate de configurar los archivos de entorno necesarios:
 
 - **Backend:** Copia `backend/.env.example` a `backend/.env`.
-- **Frontend:** Copia `frontend/.env.example` a `frontend/.env`.
 
 ### 2. Despliegue con un Solo Comando
 
