@@ -39,9 +39,9 @@ La arquitectura completa se puede desplegar fácilmente utilizando **Docker Comp
 
 ### 1. Configuración del Entorno (`.env`)
 
-Está creado un archivo llamado "init.sh" en la raiz del repositorio, que una vez ejecutado creará el archivo .env necesario con los datos correspondientes, se encargará de coinstruir y levantar los contenedores. Esta opción fue creada para hacer sencillo el proceso de levantamiento y configuración del proyecto. 
+Está creado un archivo llamado "init.sh" en la raiz del repositorio, que una vez ejecutado creará el archivo .env necesario con los datos correspondientes, se encargará de coinstruir y levantar los contenedores. Esta opción fue creada para hacer sencillo el proceso de levantamiento y configuración del proyecto. Para pdoer ejecutar el archivo, deben darle permisos de ejecución con el siguiente comando: sudo chmod +x init.sh
 
-Para los equipos con OS Windows, es importante tener WSL o alguna distribución de linux instalada para su ejecución en la terminal dedicada a la distribución de Linux y el Docker Desktop activo.
+Para los equipos con OS Windows, es importante tener WSL o alguna distribución de linux instalada para su ejecución en la terminal dedicada a la distribución de Linux y el Docker Desktop activo. 
 
 Si no se quiere ejecutar el archivo "init.sh" se puede hacer de forma manual explicado en las lineas siguientes.
 
@@ -102,6 +102,12 @@ Se incluye una colección de Postman en la raíz del proyecto para facilitar las
 3. **Solicitud de Pago:** Genera un token de confirmación enviado por email (simulado o real).
 4. **Confirmación de Pago:** Valida el token y descuenta el saldo (transaccional).
 5. **Consulta de Saldo:** Retorna el balance actual en formato decimal.
+
+## A tomar en cuenta
+
+El Token de Confirmación de pago se generará y se mostrará en el Contenedor Docker del Backend, y puede visualizarse de la siguiente forma:
+
+[Nest] 1  - 02/02/2026, 6:56:07 PM     LOG [ConsoleNotificationService] [EMAIL SENT] To: correo@gmail.com | Token: 123456
 
 ---
 
